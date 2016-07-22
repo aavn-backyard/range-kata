@@ -2,6 +2,8 @@
 
 ~This is part of the Kata series~
 
+> To submit your solution, create a PR to this repo. The Kata solution should be a maven project, named  `range-kata-by-${username}`.
+
 Implement a class `Range` to present a range of elements (having natural order). To create a `Range` instance, simply give it a `lowerbound` and a `upperbound`.
 
 > Note: Do this kata step by step and extend it.
