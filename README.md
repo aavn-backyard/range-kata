@@ -15,8 +15,8 @@ Class `Range` can be used with `int`.
 ```
 Range validAgesForWatchingPorn = Range.of(13, 100);
 
-validAgesForHavingSex.contains(5); // false
-validAgesForHavingSex.contains(22); // true
+validAgesForWatchingPorn.contains(5); // false
+validAgesForWatchingPorn.contains(22); // true
 
 ```
 
