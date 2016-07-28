@@ -2,8 +2,24 @@
 
 ~This is part of the Kata series~
 
-> It is REQUIRED to have Unit Tests for the solution.
-> To submit your solution, create a PR to this repo. The Kata solution should be a maven project, named  `range-kata-by-${username}`.
+## Submit your own solution
+
+- It is **REQUIRED** to have Unit Tests for the solution.
+- It is encourage to implement your solution **as Clean Code as possible**.
+
+1. Fork this repo.
+2. Add your own Maven project into directory `/solutions`. Name it `range-kata-by-${username}`. Implement your solution there.
+3. To submit your solution, create a PR to this repo.
+
+```
+/range-kata
+  |-README.md
+  \-solutions
+    |- range-kata-by-AndyHoang
+    |- range-kata-by-somebodyelse
+```
+
+----
 
 Implement a class `Range` to present a range of elements (having natural order). To create a `Range` instance, simply give it a `lowerbound` and a `upperbound`.
 
@@ -79,5 +95,36 @@ Range text = Range.open("abc", "xyz");
 Range decimals = Range.open(BigDecimal.valueOf("1.32432"), BigDecimal.valueOf("1.324323423423423423423"));
 
 Range dates = Range.closed(LocalDate.of(2016, Month.SEPTEMBER, 11), LocalDate.of(2017, Month.JUNE, 30)));
+
+```
+
+## Make it harder
+
+We want to have `Range` to support an open-ended style with `Infinitive`. For example:
+
+```
+Range<Integer> lessThanFive = Range.lessThan(5);
+lessThanFive.contains(5); // false;
+lessThanFive.contains(-9000); // true;
+
+Range<Integer> atLeastFive = Range.atLeast(5);
+atLeastFive.contains(5); // true;
+atLeastFive.contains(4); // false;
+
+Range<Integer> atMostFive = Range.atMost(5);
+atMostFive.contains(5); // true
+atMostFive.contains(-234234); // true;
+atMostFive.contains(6); // false;
+
+
+Range<LocalDate> afterEpoch = Range.greaterThan(LocalDate.of(1900, Month.JANUARY, 1));
+afterEpoch.contains(LocalDate.of(2016, Month.JULY, 28)); // true;
+afterEpoch.contains(LocalDate.of(1750, Month.JANUARY, 1)); // false;
+
+
+Range<String> all = Range.all();
+all.contains("anything"); // true;
+all.contains(""); // true;
+all.contains(null); // true;
 
 ```
